@@ -1,0 +1,6 @@
+pytesseract
+pillow
+pandas
+openpyxl
+rapidfuzz
+watchdog
