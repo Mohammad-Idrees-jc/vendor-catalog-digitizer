@@ -30,13 +30,13 @@ Python · Tesseract OCR · OpenCV · RapidFuzz · pandas · Streamlit · Watchdo
 ![Processing](screenshots/2_processing.png)
 
 **3. Matched results with confidence scoring**
-![Results](screenshots/3_results.png)
+![Results](screenshots/3_results.jpg)
 
 **4. Final Excel output**
 ![Excel output](screenshots/4_excel_output.png)
 
 **5. Managing the product database**
-![Manage products](screenshots/5_manage_products.png)
+![Manage products](screenshots/5_manage_products.jpg)
 
 ## How It Works (Pipeline)
 Image → OpenCV preprocessing → Tesseract OCR → Regex parsing →
