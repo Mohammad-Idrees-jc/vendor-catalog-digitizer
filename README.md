@@ -67,3 +67,59 @@ vendor-catalog-digitizer/
 ## Notes & Limitations
 
 This is built for structured product-list style catalogs (SKU / name / price / qty). It is not a universal document parser — different document layouts would need parser adjustments or a more advanced extraction approach (e.g. LLM-based field extraction) for full flexibility.
+
+## Getting Started (Clone & Run)
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/Mohammad-Idrees-jc/vendor-catalog-digitizer.git
+cd vendor-catalog-digitizer
+```
+
+**2. Create and activate a virtual environment**
+```bash
+python -m venv .venv
+```
+Windows:
+```bash
+.venv\Scripts\activate
+```
+Mac/Linux:
+```bash
+source .venv/bin/activate
+```
+
+**3. Install Python dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Install Tesseract-OCR (separate from the Python packages)**
+
+This is the actual OCR engine — the Python `pytesseract` package only talks to it, it doesn't include it.
+
+- **Windows:** download and install from [UB Mannheim's Tesseract build](https://github.com/UB-Mannheim/tesseract/wiki). Note the install path (default: `C:\Program Files\Tesseract-OCR\tesseract.exe`).
+- **Mac:** `brew install tesseract`
+- **Linux:** `sudo apt install tesseract-ocr`
+
+If you're on Windows and Tesseract isn't on your system PATH, make sure the path in `pipeline.py` matches your install location:
+```python
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+```
+
+**5. Run the web app**
+```bash
+streamlit run app.py
+```
+This opens the app in your browser at `http://localhost:8501`.
+
+**6. (Optional) Run automated folder-watching mode instead**
+```bash
+python watch.py
+```
+This watches the `input/` folder and processes any new image automatically, without needing the web interface.
+
+## Notes for New Setups
+
+- The included `master_list/master_list.csv` contains sample data — replace it with your own product database, or use the "Manage Product List" tab in the app to add products directly.
+- Make sure `input/` and `output/` folders exist in the project root (they're created automatically the first time you run `watch.py`, or you can create them manually).
